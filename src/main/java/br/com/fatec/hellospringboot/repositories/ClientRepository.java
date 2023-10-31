@@ -8,6 +8,6 @@ import br.com.fatec.hellospringboot.entities.Client;
 //Construindo um repositorio do springdata
 public interface ClientRepository extends JpaRepository<Client, Integer>{
     
-
+    
 
 }
