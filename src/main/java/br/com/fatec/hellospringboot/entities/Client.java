@@ -44,4 +44,8 @@ public class Client {
         this.balance = balance;
     }
 
+    public Client orElseThrow(Object object) {
+        return null;
+    }
+
 }
