@@ -26,6 +26,24 @@ public class ClientService {
                 () -> new EntityNotFoundException("Cliente não Existente"));
     }
 
+    public Client addClient(Client client) {
+
+        return repository.save(client);
+
+    }
+
+    public void editClient(Client client, int id) {
+
+        try {
+            Client edClient = repository.getReferenceById(id);
+            edClient.setName(client.getName());
+            edClient.setBalance(client.getBalance());
+            this.repository.save(edClient);
+        } catch (EntityNotFoundException e) {
+            throw new EntityNotFoundException("Cliente não Cadastrado!");
+        }
+    }
+
     public void deleteClientById(int id) {
 
         if (this.repository.existsById(id)) {
