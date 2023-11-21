@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -52,7 +53,7 @@ public class ClientController {
     // Client no parametro é um json que vem do front-end, por isso usa o
     // RequestBody
     @PostMapping("")
-    public ResponseEntity<Client> addClient(@RequestBody Client client) {
+    public ResponseEntity<Client> addClient(@Validated @RequestBody Client client) {
 
         Client cli = this.service.addClient(client);
 
